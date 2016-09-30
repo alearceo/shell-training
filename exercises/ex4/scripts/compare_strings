@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# This script compares two strings length
+
+# check the number of arguments
+if [[ $# -ne 2 ]]; 
+then
+    echo "Need exactly two arguments"
+    exit 1
+fi
+
+# Getting the length of a variable using ${#var}
+length_1=${#1}
+length_2=${#2}
+
+# Comparing lengths
+if [[ length_1 -gt length_2 ]]; 
+then
+    echo "$1 is longest"
+elif [[ length_1 -eq  length_2 ]];  
+then
+    echo "length is equal"
+else
+    echo "$2 is longest"
+fi
+
+exit 0

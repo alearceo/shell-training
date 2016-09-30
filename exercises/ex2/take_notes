@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Simple note taking script
+
+# using the first line passed
+echo $1 >> ./notes.txt
+
+# using all lines
+echo $* >> ./notes.txt
+
+# addind date
+echo $(date): $* >> ./notes.txt
+echo Note Saved! $*
