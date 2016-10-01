@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Showing read capabilities
+
+echo -n "Are you sure?(Y/N) "
+
+answered=
+while [[ ! $answered ]];  
+do
+    read -r -n 1 -s answer
+    if [[ $answer = [Y/y] ]]; 
+    then
+        answered="yes"
+    elif [[ $answer = [N/n] ]]; 
+    then
+        answered="no"
+    fi
+done
+
+printf "\n%s\n" $answered
+ 

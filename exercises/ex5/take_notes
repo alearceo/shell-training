@@ -1,0 +1,25 @@
+#!/bin/bash
+# -x to debug a script or a part of a script
+
+# Getting the date
+date=$(date)
+
+# set -x # enabling debugging
+# Getting the topic
+topic="$*"
+# set +x # disabling debbuging
+
+# Filename to save notes
+filename="./${topic}-note.txt"
+
+# Prompting user for note
+read -p "Your note: " note
+
+if [[ $note ]]; 
+then
+    echo "$date: $note" >> "$filename"
+    echo "Note '$note' saved to $filename"
+else
+    # Using redirection
+    echo "No input: note wasn't saved." 1>&2 # or /dev/stderr
+fi

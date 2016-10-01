@@ -1,0 +1,35 @@
+#!/bin/bash
+
+declare reverse=
+declare -i begin=0
+declare -i step=1
+
+while getopts "b:s:r" 
+do
+    case $opt in
+        r) 
+            reverse="yes"
+            ;;
+        b)
+            [[ ${OPTARG} =~ ^[0-9]+$ ]] || { echo "${OPTARG} is not a number" >&2; exit 1; }
+            start="${OPTARG}"
+            ;;
+        s) 
+            [[ ${OPTARG} =~ ^[0-9]+$ ]] || { echo "${OPTARG} is not a number" >&2; exit 1; }
+            step="${OPTARG}"
+            ;;
+        \?)
+            exit 1
+            ;;
+    esac
+    
+done
+
+shift $(( OPTIND -1 ))
+
+[[ $1 ]] || { echo "Missing an argument" }
+
+if  
+then
+    
+fi

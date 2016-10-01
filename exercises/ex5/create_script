@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# This script creates a new bash script, set permissions and more
+
+# checking if an argument exist 
+if [[ ! $1 ]]; then
+    echo "Missing argument"
+    exit 1
+fi
+
+scriptname="$1"
+scriptdir="./scripts"
+filename="${scriptdir}/${scriptname}"
+
+if [[ -e $filename ]]; 
+then
+    echo "Filename ${filename} already exist"
+    exit 1
+fi
+
+if type "$scriptname" > /dev/null 2>&1; # Redirecting all outputs to /dev/null
+then
+    echo "There is already a command with a name ${scriptname}"
+    exit 1 
+fi
+
+if [[ ! -d $scriptdir ]]; 
+then
+    if mkdir "$scriptdir"; 
+    then
+        echo "Created ${scriptdir}"
+    else
+        echo "Could not create ${scriptdir}"
+        exit 1
+    fi
+fi
+
+# Creating the script
+# TODO: Do some test to check for directory & file permissions using [[ operators ]]
+echo "#!/bin/bash" >> "$filename"
+chmod u+x "$filename"
+
+echo "EOF"
+exit 0

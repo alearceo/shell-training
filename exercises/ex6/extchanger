@@ -1,0 +1,10 @@
+#!/bin/bash
+
+[[ $# -ne 2 ]] && { echo "Need exactly two arguments" >&2; exit 1; } # Using && logic operator to replace if statement
+
+for file in *"$1"; # Using wildcard * to match every extension
+do
+    base=$(basename "$file" "$1")
+    echo mv "$file" "${base}$2"
+    mv "$file" "${base}$2"
+done

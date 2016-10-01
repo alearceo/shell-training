@@ -1,0 +1,8 @@
+#!/bin/bash -x
+
+# Using loops
+
+while read -r || [[ $REPLY ]]; # Checking $REPLY contents for last line using || logic operator
+do
+    printf "%s\n" "$REPLY"
+done <"$1"

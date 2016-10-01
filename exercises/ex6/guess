@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Using loops
+
+# Get a random number < 100
+target=$(($RANDOM % 100))
+
+# Initilize guess var
+guess=
+
+until [[ $guess -eq $target ]]; 
+do
+    read -p "Take a guess: " guess
+    if  [[ $guess -lt $target ]];
+    then
+        echo "Higher!"
+    elif [[ $guess -gt $target ]]; 
+    then
+        echo "Lower!"
+    else
+        echo "You found it!"
+    fi
+done
+
+exit 0
